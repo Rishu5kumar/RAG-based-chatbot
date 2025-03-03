@@ -1,5 +1,5 @@
-numpy
-scipy
+numpy>=1.26.0
+scipy>=1.10.0
 pandas
 gensim
 nltk
@@ -8,4 +8,4 @@ google-generativeai
 streamlit
 python-dotenv
 pypdf
-scipy==1.9.3
+setuptools==65.5.0
