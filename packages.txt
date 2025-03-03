@@ -1,3 +1,2 @@
 libblas3
 liblapack3
-nltk-data
