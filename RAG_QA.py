@@ -7,6 +7,7 @@ from langchain.schema import Document
 from gensim.models import Word2Vec
 import numpy as np
 from numpy import triu
+from scipy.linalg.basic import triu
 import nltk
 from nltk.tokenize import word_tokenize
 from pypdf import PdfReader
