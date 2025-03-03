@@ -8,4 +8,4 @@ streamlit
 python-dotenv
 pypdf
 setuptools==65.5.0
-scipy
+scipy<1.12.0
