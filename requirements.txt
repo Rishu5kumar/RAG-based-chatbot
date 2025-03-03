@@ -8,3 +8,4 @@ google-generativeai
 streamlit
 python-dotenv
 pypdf
+scipy==1.9.3
