@@ -2,7 +2,7 @@
 
 ---
 
-# RAG-based-chatbot
+# RAG-based-chatbot 
 
 This project is a RAG-based-chatbot that answers questions based on a text file the user uploads. It works by:
 
