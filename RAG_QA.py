@@ -12,7 +12,8 @@ from nltk.tokenize import word_tokenize
 from pypdf import PdfReader
 
 # Download missing tokenizer
-nltk.download("punkt")
+import nltk
+nltk.download('punkt')
 
 # Load environment variables
 load_dotenv()
