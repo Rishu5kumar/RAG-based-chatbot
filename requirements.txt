@@ -1,4 +1,4 @@
-numpy>=1.26.0
+numpy
 pandas
 gensim
 nltk
@@ -8,4 +8,4 @@ streamlit
 python-dotenv
 pypdf
 setuptools==65.5.0
-scipy<1.12.0
+scipy
