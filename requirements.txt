@@ -7,3 +7,4 @@ langchain
 google-generativeai
 streamlit
 python-dotenv
+pypdf
