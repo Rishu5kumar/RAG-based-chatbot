@@ -8,6 +8,7 @@ from gensim.models import Word2Vec
 import numpy as np
 import nltk
 from nltk.tokenize import word_tokenize
+from pypdf import PdfReader
 
 # Download missing tokenizer
 nltk.download("punkt")
@@ -15,6 +16,17 @@ nltk.download("punkt")
 # Load environment variables
 load_dotenv()
 genai.configure(api_key=os.getenv("API_KEY"))
+
+# Function to extract text from files
+def extract_text_from_file(uploaded_file):
+    """Extracts text from TXT, PDF, or DOCX files."""
+    if uploaded_file.type == "text/plain":
+        return uploaded_file.read().decode("utf-8")
+    elif uploaded_file.type == "application/pdf":
+        reader = PdfReader(uploaded_file)
+        return "\n".join([page.extract_text() for page in reader.pages if page.extract_text()])
+    else:
+        return ""
 
 # Function to process document text
 def process_text(text):
@@ -83,12 +95,13 @@ def generate_response(user_query, model, documents):
 # Streamlit UI
 st.title("📚 RAG-Based Chatbot with Gemini & Word2Vec")
 
-uploaded_file = st.file_uploader("📂 Upload a document (TXT)", type=["txt"])
+uploaded_file = st.file_uploader("📂 Upload a document (TXT, PDF)", type=["txt", "pdf"])
 
+documents = []
 if uploaded_file:
-    file_text = uploaded_file.read().decode("utf-8")
+    file_text = extract_text_from_file(uploaded_file)
     documents = process_text(file_text)
-
+    
     if documents:
         model = train_word2vec(documents)
         st.success(f"✅ Document '{uploaded_file.name}' uploaded and processed successfully!")
@@ -105,6 +118,3 @@ if input_text and model:
     st.markdown(f"### 🤖 AI Response:\n{response_text}")
 elif input_text:
     st.warning("⚠️ Please upload a document first.")
-
-
-# streamlit run RAG_QA.py (to run this streamlit app)
