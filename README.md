@@ -1,3 +1,7 @@
+# Check out the deployed Streamlit app: [https://rag-based-chatbot-rishukumar.streamlit.app/](https://rag-based-chatbot-rishukumar.streamlit.app/)
+
+---
+
 # RAG-based-chatbot
 
 This project is a RAG-based-chatbot that answers questions based on a text file the user uploads. It works by:
